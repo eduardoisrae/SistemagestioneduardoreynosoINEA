@@ -307,6 +307,132 @@ body {
             color: #1e40af;
             font-style: italic;
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                .notifications-carousel {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            perspective: 1500px;
+        }
+
+        .notification-card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f3);
+            border-radius: 16px;
+            box-shadow: 
+                6px 6px 12px rgba(0,0,0,0.05), 
+                -6px -6px 12px rgba(255,255,255,0.9);
+            width: 320px;
+            padding: 25px;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-origin: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .notification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+        }
+
+        .notification-card:hover {
+            transform: rotateY(12deg) scale(1.05);
+            box-shadow: 
+                10px 10px 20px rgba(0,0,0,0.1), 
+                -10px -10px 20px rgba(255,255,255,1);
+        }
+
+        .notification-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .notification-icon {
+            width: 60px;
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 20px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .notification-content {
+            flex-grow: 1;
+        }
+
+        .notification-title {
+            font-weight: 700;
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .notification-description {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .notification-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-date {
+            color: #95a5a6;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .notification-date svg {
+            margin-right: 5px;
+            stroke: #3498db;
+        }
+
+        .notification-badge {
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .hp-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%230096D6" d="M50 10c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zm18.456 59.907H58.217V50.156h10.239v19.751zm-30.673-19.751v19.751H27.544V50.156h10.239zM50 40.097c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10z"/></svg>') }
+        .dell-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23008571" d="M50 10c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zm20 57.5H30V32.5h40v35z"/></svg>') }
+        .lenovo-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23E2001A" d="M50 10c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zm15 60H35v-40h30v40z"/></svg>') }
+        .asus-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%231E4FC2" d="M50 10c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zm25 55H25V35h50v30z"/></svg>') }
+        .msi-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ED1C24" d="M50 10c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zm25 55H25V35h50v30z"/></svg>') }
 
 
 
@@ -488,7 +614,117 @@ body {
             </table>
         </section>
     </div>
-    
+     <div class="notifications-carousel">
+        <div class="notification-card">
+            <div class="notification-header">
+                <div class="notification-icon hp-icon"></div>
+                <div class="notification-content">
+                    <div class="notification-title">HP ProBook Update</div>
+                    <div class="notification-description">Firmware de seguridad y rendimiento</div>
+                </div>
+            </div>
+            <div class="notification-meta">
+                <div class="notification-date">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y6></line>
+                        <line x1="8" y1="2" x2="8" y6></line>
+                        <line x1="3" y1="10" x2="21" y10></line>
+                    </svg>
+                    15 Nov 2024
+                </div>
+                <div class="notification-badge">Urgente</div>
+            </div>
+        </div>
+
+        <div class="notification-card">
+            <div class="notification-header">
+                <div class="notification-icon dell-icon"></div>
+                <div class="notification-content">
+                    <div class="notification-title">Dell XPS Drivers</div>
+                    <div class="notification-description">Actualización de controladores gráficos</div>
+                </div>
+            </div>
+            <div class="notification-meta">
+                <div class="notification-date">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y6></line>
+                        <line x1="8" y1="2" x2="8" y6></line>
+                        <line x1="3" y1="10" x2="21" y10></line>
+                    </svg>
+                    22 Nov 2024
+                </div>
+                <div class="notification-badge">Nuevo</div>
+            </div>
+        </div>
+
+        <div class="notification-card">
+            <div class="notification-header">
+                <div class="notification-icon lenovo-icon"></div>
+                <div class="notification-content">
+                    <div class="notification-title">Lenovo ThinkPad</div>
+                    <div class="notification-description">Correcciones de sistema críticas</div>
+                </div>
+            </div>
+            <div class="notification-meta">
+                <div class="notification-date">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y6></line>
+                        <line x1="8" y1="2" x2="8" y6></line>
+                        <line x1="3" y1="10" x2="21" y10></line>
+                    </svg>
+                    30 Nov 2024
+                </div>
+                <div class="notification-badge">Importante</div>
+            </div>
+        </div>
+
+        <div class="notification-card">
+            <div class="notification-header">
+                <div class="notification-icon asus-icon"></div>
+                <div class="notification-content">
+                    <div class="notification-title">ASUS ROG Update</div>
+                    <div class="notification-description">Optimización de rendimiento gaming</div>
+                </div>
+            </div>
+            <div class="notification-meta">
+                <div class="notification-date">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y6></line>
+                        <line x1="8" y1="2" x2="8" y6></line>
+                        <line x1="3" y1="10" x2="21" y10></line>
+                    </svg>
+                    05 Dic 2024
+                </div>
+                <div class="notification-badge">Performance</div>
+            </div>
+        </div>
+
+        <div class="notification-card">
+            <div class="notification-header">
+                <div class="notification-icon msi-icon"></div>
+                <div class="notification-content">
+                    <div class="notification-title">MSI Prestige</div>
+                    <div class="notification-description">Actualizaciones de seguridad</div>
+                </div>
+            </div>
+            <div class="notification-meta">
+                <div class="notification-date">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y6></line>
+                        <line x1="8" y1="2" x2="8" y6></line>
+                        <line x1="3" y1="10" x2="21" y10></line>
+                    </svg>
+                    10 Dic 2024
+                </div>
+                <div class="notification-badge">Seguridad</div>
+            </div>
+        </div>
+     </div><br><br>
 <center>
     <button onclick="location.href='registrarReporte.jsp'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Registrar Reporte</button>
     <button onclick="location.href='resgistrarEquipo.jsp'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Registrar Equipo</button>
@@ -497,6 +733,19 @@ body {
     <script>
     console.log('<%= usuario %>');
 </script>
+
+    <script>
+        // Optional future JavaScript for interactive features
+        document.querySelectorAll('.notification-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
 
 </body>
 
