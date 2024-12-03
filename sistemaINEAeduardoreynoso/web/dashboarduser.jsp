@@ -5,10 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="conexion.jsp"%>
 <!DOCTYPE html>
 
 
-<%@include file="conexion.jsp"%>
+
 
 <html>
     
@@ -248,62 +249,146 @@ body {
 
 
 
+        .rectangular-button {
+            background-color: black;
+            color: white;
+            border: none;
+            width: 120px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
 
+        .rectangular-button svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+            margin-right: 10px;
+        }
 
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                .containers {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        .section {
+            background-color: #f9fafb;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .note {
+            background-color: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 1rem;
+            color: #1e40af;
+            font-style: italic;
+        }
 
 
 
     </style>
 </head>
-<% 
-    // Recuperar el usuario desde la sesión
-    String usuario = (String) session.getAttribute("usuario");
+<body>
+       <% 
+        // Recuperar el usuario desde la sesión
+        String usuario = (String) session.getAttribute("usuario");
 
-    if (usuario == null || usuario.isEmpty()) {
-        response.sendRedirect("login.jsp"); // Redirigir al login si no hay usuario en la sesión
-    }
-%>
+        if (usuario == null || usuario.isEmpty()) {
+            response.sendRedirect("login.jsp"); // Redirigir al login si no hay usuario en la sesión
+        }
+    %>
 
-<body> 
-<div class="container">
-    <h1 class="title">Panel de Usuario: <%= usuario %></h1>
+    
+    <div class="container">
+        
+        <button class="rectangular-button" onclick="window.location.href='index.jsp'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Salir
+    </button>
+        <h1 class="title">Bienvenido <%= usuario %></h1>
 
-    <!-- Formulario de Registro de Reportes -->
-    <section class="form-section">
-        <h2>Registrar Reporte</h2>
-<form method="POST" action="registrarReporte.jsp" enctype="multipart/form-data">
+       
+    </div>
+        
+        
+            <div class="containers">
+        <h1 id="user-instructions" class="text-3xl font-bold text-center mb-6 text-gray-900 border-b pb-4">
+            Instrucciones de Uso
+        </h1>
 
-    <input type="hidden" name="usuario" value="<%= usuario %>" />
+        <div class="section" id="welcome-section">
+            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Bienvenida</h2>
+            <p>Al entrar a esta página, verás un mensaje de bienvenida con tu nombre de usuario. Asegúrate de estar logueado, ya que de no ser así, serás redirigido automáticamente a la página de inicio de sesión.</p>
+        </div>
 
-    <label for="tipoEquipo">Tipo de Equipo:</label>
-    <input type="text" name="tipoEquipo" id="tipoEquipo" required>
+        <div class="section" id="logout-section">
+            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Sección: Botón "Salir"</h2>
+            <p>Este botón te permite salir del panel de usuario y regresar a la página principal del sistema.</p>
+            <ul class="list-disc list-inside ml-4">
+                <li>Haz clic en el botón negro que dice <strong>"Salir"</strong> (con un ícono de flecha) para cerrar tu sesión.</li>
+            </ul>
+        </div>
 
-    <label for="marca">Marca:</label>
-    <input type="text" name="marca" id="marca" required>
+        <div class="section" id="notifications-section">
+            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Sección: Notificaciones Personalizadas</h2>
+            <p>Aquí podrás ver las notificaciones relacionadas con tus reportes.</p>
+            <ul class="list-disc list-inside ml-4">
+                <li>Encuentra la tabla con las columnas: <strong>Título</strong>, <strong>Descripción</strong>, y <strong>Acciones</strong>.</li>
+                <li>Haz clic en el botón <strong>"Modificar"</strong> para editar un reporte.</li>
+                <li>Haz clic en el botón <strong>"Eliminar"</strong> para borrar un reporte que ya no necesitas.</li>
+            </ul>
+        </div>
 
-    <label for="modelo">Modelo:</label>
-    <input type="text" name="modelo" id="modelo" required>
+        <div class="section" id="teams-section">
+            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Sección: Mis Equipos</h2>
+            <p>Aquí puedes gestionar los equipos asignados a tu cuenta.</p>
+            <ul class="list-disc list-inside ml-4">
+                <li>Revisa la tabla con las columnas: <strong>Tipo de Equipo</strong>, <strong>Estado</strong>, <strong>Área</strong>, y <strong>Acciones</strong>.</li>
+                <li>Haz clic en el botón <strong>"Modificar"</strong> para actualizar la información de un equipo.</li>
+                <li>Haz clic en el botón <strong>"Eliminar"</strong> si el equipo ya no está relacionado contigo.</li>
+            </ul>
+        </div>
 
-    <label for="numeroSerie">Número de Serie:</label>
-    <input type="text" name="numeroSerie" id="numeroSerie" required>
+        <div class="section" id="general-tips">
+            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Consejos Generales</h2>
+            <p>Si no ves datos en las tablas, puede ser porque aún no tienes reportes o equipos registrados. Contacta al administrador si esto parece un error.</p>
+            <p class="note mt-4">Si experimentas problemas (botones que no funcionan o errores de carga), intenta recargar la página o comunícate con soporte técnico.</p>
+        </div>
 
-   <label for="area">Área Asignada:</label>
-<input type="text" name="area" id="area" required>
-
-
-    <label for="descripcion">Descripción del Reporte:</label>
-    <textarea name="descripcion" id="descripcion" required></textarea>
-
-    <label for="titulo">Título:</label>
-    <input type="text" name="titulo" id="titulo" required>
-
-    <button type="submit" class="btn-primary">Guardar y Enviar</button>
-</form>
-
-    </section>
-</div>
-
+        <div class="section" id="quick-shortcuts">
+            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Atajos Rápidos</h2>
+            <ul class="list-disc list-inside ml-4">
+                <li><strong>Volver al Inicio:</strong> Usa el botón <strong>"Salir"</strong> para salir del panel rápidamente.</li>
+                <li><strong>Gestión Rápida:</strong> Utiliza los botones de acción directamente desde las tablas.</li>
+            </ul>
+        </div>
+            </div><br><br>
         <!-- Notificaciones Personalizadas -->
         <section class="notifications-section">
             <h2>Notificaciones</h2>
@@ -378,7 +463,15 @@ body {
                             <td><%= rs.getString("estado") %></td>
                             <td><%= rs.getString("area") %></td>
                             <td>
-                                <button onclick="location.href='modificarEquipo.jsp?id=<%= rs.getInt("id") %>'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Modificar</button>
+                                <button onclick="location.href='modificarEquipo.jsp?id=<%= rs.getInt("id") %>'" 
+        style="display: inline-block; padding: 8px 16px; border-radius: 8px; 
+               text-decoration: none; font-weight: 600; text-transform: uppercase; 
+               font-size: 14px; transition: all 0.3s ease; text-align: center; 
+               cursor: pointer; background-color: black; color: white; 
+               box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    Modificar
+</button>
+
                                 <button onclick="location.href='eliminarEquipo.jsp?id=<%= rs.getInt("id") %>'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Eliminar</button>
                             </td>
                         </tr>
@@ -396,7 +489,11 @@ body {
         </section>
     </div>
     
+<center>
+    <button onclick="location.href='registrarReporte.jsp'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Registrar Reporte</button>
+    <button onclick="location.href='resgistrarEquipo.jsp'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Registrar Equipo</button>
     
+</center>  
     <script>
     console.log('<%= usuario %>');
 </script>
