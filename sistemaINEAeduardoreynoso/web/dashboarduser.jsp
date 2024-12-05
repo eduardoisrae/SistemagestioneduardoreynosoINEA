@@ -859,6 +859,44 @@ body {
         transform: translateY(0);
     }
 }
+
+
+
+
+
+
+.dashboard-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(106, 17, 203, 0.2);
+    gap: 10px;
+}
+
+.dashboard-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(106, 17, 203, 0.3);
+}
+
+.dashboard-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-btn:hover svg {
+    transform: translateX(3px);
+}
     </style>
 </head>
 <body>
@@ -1193,6 +1231,17 @@ body {
                     </li>
                 </ul>
             </div>
+            
+            
+            
+            
+                <center>           <a href="vistamensaje.jsp" class="dashboard-btn">
+    contacto Manager
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+    </a></center>
 
             <div class="panel-content">
                 <h2 class="panel-title">Recomendaciones por Marca</h2>

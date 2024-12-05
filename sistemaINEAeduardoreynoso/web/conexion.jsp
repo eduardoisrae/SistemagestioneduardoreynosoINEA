@@ -1,8 +1,4 @@
-<%-- 
-    Document   : conexion
-    Created on : 1/12/2024, 04:17:55 PM
-    Author     : cantt
---%>
+  
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
