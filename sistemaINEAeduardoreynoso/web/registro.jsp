@@ -90,6 +90,25 @@ input:focus {
     box-shadow: none;
 }
 
+button:hover {
+    background-color: #00f2fe;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(50, 50, 93, 0.12), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+.register-btn {
+    background-color: #4facfe;
+}
+
+.register-btn:hover {
+    background-color: #00f2fe;
+}
+
 .alert {
     padding: 12px 15px;
     margin-bottom: 20px;
@@ -108,6 +127,8 @@ input:focus {
     color: #155724;
     border: 1px solid #c3e6cb;
 }
+
+
 
 @keyframes fadeIn {
     from {
@@ -183,6 +204,8 @@ input:focus {
         <label for="contrasena">Contraseña</label>
         <input type="password" name="contrasena" id="contrasena" required>
         <button type="submit" class="register-btn">Registrar</button>
+        <button type="submit" class="register-btn" onclick="location.href='index.jsp'">Regresar</button>
+        
         
     </form>
 </div>
@@ -195,5 +218,4 @@ input:focus {
     
 
   </body>
-
 </html>

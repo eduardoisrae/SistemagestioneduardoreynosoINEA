@@ -115,9 +115,17 @@ input:focus {
 }
 
 /* Botones con efecto de elevación */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
 button {
     padding: 15px;
-    background-color: #3498db;
+    background-color: #4facfe;
     color: white;
     border: none;
     border-radius: 10px;
@@ -127,10 +135,12 @@ button {
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    width: 100%;
+    max-width: 200px;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #00f2fe;
     transform: translateY(-4px);
     box-shadow: 0 8px 15px rgba(50, 50, 93, 0.12), 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -141,14 +151,12 @@ button:active {
 }
 
 .register-btn {
-    background-color: black;
-    margin-top: 15px;
+    background-color: #4facfe;
 }
 
 .register-btn:hover {
-    background-color: black;
+    background-color: #00f2fe;
 }
-
 /* Mensajes de error con diseño moderno */
 .alert {
     color: #e74c3c;
@@ -171,40 +179,73 @@ button:active {
 }
 
 /* Footer elegante */
-footer {
-    background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 14px;
+.footer {
+    background: white;
+    color: black;
+    padding: 2rem 1rem;
     margin-top: auto;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
 
-footer p {
-    margin: 5px 0;
-    opacity: 0.9;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .login-container {
-        width: 95%;
-        margin: 30px auto;
-        padding: 25px;
-    }
-
-    header {
-        padding: 15px 0;
-        font-size: 18px;
-    }
-
-    footer {
-        font-size: 12px;
-        padding: 15px;
-    }
+.footer-section {
+    margin-bottom: 1rem;
 }
 
+.company-name {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.company-tagline {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #e0f7ff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+}
 /* Animación sutil de entrada */
 @keyframes fadeIn {
     from {

@@ -73,9 +73,9 @@
         <input type="text" name="usuario" id="usuario" required>
         <label for="contrasena">Contraseña</label>
         <input type="password" name="contrasena" id="contrasena" required>
-        <button type="submit" class="login-btn">Iniciar Sesión</button>
-    </form>
-    <button class="register-btn" onclick="location.href='registro.jsp'">Registrarse</button>
+        <center><button type="submit" class="login-btn">Iniciar Sesión</button></center>
+    </form><br><br>
+    <center><button class="register-btn" onclick="location.href='registro.jsp'">Registrarse</button></center>
 </div>
 
 <jsp:include page="includes/footer.jsp"/>

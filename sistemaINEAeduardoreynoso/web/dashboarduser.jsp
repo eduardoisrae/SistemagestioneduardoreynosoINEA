@@ -285,29 +285,47 @@ body {
         
         
         
+         
                 .containers {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
+        }
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .header {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 2rem;
+            text-align: center;
         }
         .section {
-            background-color: #f9fafb;
-            border-left: 4px solid #3b82f6;
-            padding: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .section h2 {
+            color: #2563eb;
             margin-bottom: 1rem;
-            border-radius: 0 8px 8px 0;
+            font-size: 1.25rem;
+            font-weight: 600;
         }
-        .note {
-            background-color: #eff6ff;
-            border-left: 4px solid #2563eb;
-            padding: 1rem;
-            color: #1e40af;
-            font-style: italic;
+        .section p, .section ul {
+            margin-bottom: 1rem;
         }
-        
+        .section ul {
+            padding-left: 2rem;
+        }
+        .highlight {
+            background-color: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+        }
         
         
         
@@ -436,6 +454,411 @@ body {
 
 
 
+        
+        
+        
+        
+        
+        .notifications-section {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    
+}
+
+.notifications-section h2 {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 9px;
+}
+
+.notifications-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.notifications-table thead {
+    background-color: #f3f4f6;
+}
+
+.notifications-table th, 
+.notifications-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.notifications-table th {
+    font-weight: 600;
+    color: #2563eb;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.notifications-table tr:last-child td {
+    border-bottom: none;
+}
+
+.notifications-table button {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-right: 0.5rem;
+}
+
+.notifications-table button:hover {
+    background-color: #1e40af;
+}
+
+
+
+.equipment-section {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.equipment-section h2 {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 9px;
+}
+
+.equipment-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.equipment-table thead {
+    background-color: #f3f4f6;
+}
+
+.equipment-table th, 
+.equipment-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.equipment-table th {
+    font-weight: 600;
+    color: #2563eb;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.equipment-table tr:last-child td {
+    border-bottom: none;
+}
+
+.equipment-table button {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-right: 0.5rem;
+}
+
+.equipment-table button:hover {
+    background-color: #1e40af;
+}
+
+
+
+
+        .maintenance-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .maintenance-panel {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .panel-header {
+            background: linear-gradient(135deg, #4338ca, #3730a3);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .panel-content {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .panel-title {
+            color: #4338ca;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .panel-subtitle {
+            color: #4338ca;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .panel-text, .panel-list {
+            margin-bottom: 1rem;
+        }
+        .panel-list {
+            padding-left: 2rem;
+        }
+        .tech-tag {
+            background-color: #f1f5f9;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+            color: #4338ca;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                .maintenance-wrappers {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .maintenance-panel {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .panel-header {
+            background: linear-gradient(135deg, #4338ca, #3730a3);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-container {
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eaeaea;
+        }
+        .chat-input input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            margin-right: 0.5rem;
+        }
+        .chat-input button {
+            background-color: #4338ca;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+        }
+        .user-message {
+            background-color: #f1f5f9;
+            align-self: flex-end;
+            text-align: right;
+        }
+        .bot-message {
+            background-color: #e0e7ff;
+            align-self: flex-start;
+        }
+        .chat-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        
+        
+        
+        
+        #chu{
+            text-align: center;
+        }
+        
+        
+        
+        
+                .ey { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 2rem; 
+        }
+        .two { 
+            background: white; 
+            border-radius: 1rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            overflow: hidden; 
+            margin-bottom: 2rem; 
+        }
+        .mye { 
+            background: linear-gradient(135deg, #2563eb, #1e40af); 
+            color: white; 
+            padding: 2rem; 
+            text-align: center; 
+        }
+        .section-item { 
+            padding: 1.5rem; 
+            border-bottom: 1px solid #eee; 
+        }
+        .section-item h2 { 
+            color: #2563eb; 
+            margin-bottom: 1rem; 
+            font-size: 1.25rem; 
+            font-weight: 600; 
+        }
+        .section-item p, .section-item ul { 
+            margin-bottom: 1rem; 
+        }
+        .section-item ul { 
+            padding-left: 2rem; 
+        }
+        .highlight { 
+            background-color: #f3f4f6; 
+            padding: 0.25rem 0.5rem; 
+            border-radius: 0.25rem; 
+            font-family: monospace; 
+        }
+        
+        
+        
+        
+        
+        
+        
+        .footer {
+    background: white;
+    color: black;
+    padding: 2rem 1rem;
+    margin-top: auto;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer-section {
+    margin-bottom: 1rem;
+}
+.company-name {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+}
+.company-tagline {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0;
+}
+.footer-nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.footer-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-link:hover {
+    color: #e0f7ff;
+}
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-nav {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+}
+/* Animación sutil de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
     </style>
 </head>
 <body>
@@ -463,58 +886,60 @@ body {
     </div>
         
         
-            <div class="containers">
-        <h1 id="user-instructions" class="text-3xl font-bold text-center mb-6 text-gray-900 border-b pb-4">
-            Instrucciones de Uso
-        </h1>
+           <div class="containers">
+        <div class="card">
+            <div class="header">
+                <h1>Instrucciones de Uso</h1>
+            </div>
 
-        <div class="section" id="welcome-section">
-            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Bienvenida</h2>
-            <p>Al entrar a esta página, verás un mensaje de bienvenida con tu nombre de usuario. Asegúrate de estar logueado, ya que de no ser así, serás redirigido automáticamente a la página de inicio de sesión.</p>
-        </div>
+            <div class="section">
+                <h2>Bienvenida</h2>
+                <p>Al entrar a esta página, verás un mensaje de bienvenida con tu nombre de usuario. Asegúrate de estar logueado, ya que de no ser así, serás redirigido automáticamente a la página de inicio de sesión.</p>
+            </div>
 
-        <div class="section" id="logout-section">
-            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Sección: Botón "Salir"</h2>
-            <p>Este botón te permite salir del panel de usuario y regresar a la página principal del sistema.</p>
-            <ul class="list-disc list-inside ml-4">
-                <li>Haz clic en el botón negro que dice <strong>"Salir"</strong> (con un ícono de flecha) para cerrar tu sesión.</li>
-            </ul>
-        </div>
+            <div class="section">
+                <h2>Botón "Salir"</h2>
+                <p>Este botón te permite salir del panel de usuario y regresar a la página principal del sistema.</p>
+                <ul>
+                    <li>Haz clic en el botón <span class="highlight">Salir</span> (con un ícono de flecha) para cerrar tu sesión.</li>
+                </ul>
+            </div>
 
-        <div class="section" id="notifications-section">
-            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Sección: Notificaciones Personalizadas</h2>
-            <p>Aquí podrás ver las notificaciones relacionadas con tus reportes.</p>
-            <ul class="list-disc list-inside ml-4">
-                <li>Encuentra la tabla con las columnas: <strong>Título</strong>, <strong>Descripción</strong>, y <strong>Acciones</strong>.</li>
-                <li>Haz clic en el botón <strong>"Modificar"</strong> para editar un reporte.</li>
-                <li>Haz clic en el botón <strong>"Eliminar"</strong> para borrar un reporte que ya no necesitas.</li>
-            </ul>
-        </div>
+            <div class="section">
+                <h2>Notificaciones Personalizadas</h2>
+                <p>Aquí podrás ver las notificaciones relacionadas con tus reportes.</p>
+                <ul>
+                    <li>Encuentra la tabla con las columnas: <span class="highlight">Título</span>, <span class="highlight">Descripción</span>, y <span class="highlight">Acciones</span>.</li>
+                    <li>Haz clic en el botón <span class="highlight">Modificar</span> para editar un reporte.</li>
+                    <li>Haz clic en el botón <span class="highlight">Eliminar</span> para borrar un reporte que ya no necesitas.</li>
+                </ul>
+            </div>
 
-        <div class="section" id="teams-section">
-            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Sección: Mis Equipos</h2>
-            <p>Aquí puedes gestionar los equipos asignados a tu cuenta.</p>
-            <ul class="list-disc list-inside ml-4">
-                <li>Revisa la tabla con las columnas: <strong>Tipo de Equipo</strong>, <strong>Estado</strong>, <strong>Área</strong>, y <strong>Acciones</strong>.</li>
-                <li>Haz clic en el botón <strong>"Modificar"</strong> para actualizar la información de un equipo.</li>
-                <li>Haz clic en el botón <strong>"Eliminar"</strong> si el equipo ya no está relacionado contigo.</li>
-            </ul>
-        </div>
+            <div class="section">
+                <h2>Mis Equipos</h2>
+                <p>Aquí puedes gestionar los equipos asignados a tu cuenta.</p>
+                <ul>
+                    <li>Revisa la tabla con las columnas: <span class="highlight">Tipo de Equipo</span>, <span class="highlight">Estado</span>, <span class="highlight">Área</span>, y <span class="highlight">Acciones</span>.</li>
+                    <li>Haz clic en el botón <span class="highlight">Modificar</span> para actualizar la información de un equipo.</li>
+                    <li>Haz clic en el botón <span class="highlight">Eliminar</span> si el equipo ya no está relacionado contigo.</li>
+                </ul>
+            </div>
 
-        <div class="section" id="general-tips">
-            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Consejos Generales</h2>
-            <p>Si no ves datos en las tablas, puede ser porque aún no tienes reportes o equipos registrados. Contacta al administrador si esto parece un error.</p>
-            <p class="note mt-4">Si experimentas problemas (botones que no funcionan o errores de carga), intenta recargar la página o comunícate con soporte técnico.</p>
-        </div>
+            <div class="section">
+                <h2>Consejos Generales</h2>
+                <p>Si no ves datos en las tablas, puede ser porque aún no tienes reportes o equipos registrados. Contacta al administrador si esto parece un error.</p>
+                <p>Si experimentas problemas (botones que no funcionan o errores de carga), intenta recargar la página o comunícate con soporte técnico.</p>
+            </div>
 
-        <div class="section" id="quick-shortcuts">
-            <h2 class="text-2xl font-semibold mb-3 text-blue-700">Atajos Rápidos</h2>
-            <ul class="list-disc list-inside ml-4">
-                <li><strong>Volver al Inicio:</strong> Usa el botón <strong>"Salir"</strong> para salir del panel rápidamente.</li>
-                <li><strong>Gestión Rápida:</strong> Utiliza los botones de acción directamente desde las tablas.</li>
-            </ul>
+            <div class="section">
+                <h2>Atajos Rápidos</h2>
+                <ul>
+                    <li><strong>Volver al Inicio:</strong> Usa el botón <span class="highlight">Salir</span> para salir del panel rápidamente.</li>
+                    <li><strong>Gestión Rápida:</strong> Utiliza los botones de acción directamente desde las tablas.</li>
+                </ul>
+            </div>
         </div>
-            </div><br><br>
+    </div><br><br>
         <!-- Notificaciones Personalizadas -->
         <section class="notifications-section">
             <h2>Notificaciones</h2>
@@ -614,6 +1039,9 @@ body {
             </table>
         </section>
     </div>
+    
+    
+<center><h1>Alertas de Nuevas Actualizaciones</h1></center>
      <div class="notifications-carousel">
         <div class="notification-card">
             <div class="notification-header">
@@ -730,6 +1158,243 @@ body {
     <button onclick="location.href='resgistrarEquipo.jsp'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Registrar Equipo</button>
     
 </center>  
+     
+     
+     
+      <div class="maintenance-wrapper">
+        <div class="maintenance-panel">
+            <div class="panel-header">
+                <h1 id="chu">Guía de Mantenimiento de Computadoras</h1>
+            </div>
+            <div class="panel-content">
+                <h2 class="panel-title">Frecuencia de Revisión y Actualización</h2>
+                <p class="panel-text">Para mantener tu computadora en óptimas condiciones, sigue estas recomendaciones:</p>
+                <ul class="panel-list">
+                    <li><strong>Cada mes:</strong>
+                        <ul>
+                            <li>Limpieza física del equipo (exterior e interior)</li>
+                            <li>Verificar actualizaciones del sistema operativo</li>
+                            <li>Ejecutar una limpieza de archivos temporales</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cada 3 meses:</strong>
+                        <ul>
+                            <li>Desfragmentar disco duro (para sistemas Windows)</li>
+                            <li>Actualizar controladores de hardware</li>
+                            <li>Revisar y limpiar el software antivirus</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cada 6 meses:</strong>
+                        <ul>
+                            <li>Verificar estado de la batería</li>
+                            <li>Realizar respaldo completo de información</li>
+                            <li>Considerar reinstalación del sistema operativo</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="panel-content">
+                <h2 class="panel-title">Recomendaciones por Marca</h2>
+                
+                <h3 class="panel-subtitle">Dell</h3>
+                <p class="panel-text">Utiliza la herramienta de diagnóstico <span class="tech-tag">Dell SupportAssist</span> para mantenimiento preventivo. Actualiza el BIOS cada 6 meses.</p>
+                
+                <h3 class="panel-subtitle">HP</h3>
+                <p class="panel-text">Emplea <span class="tech-tag">HP Support Assistant</span> para actualizaciones y diagnóstico. Limpia los ventiladores cada 3 meses.</p>
+                
+                <h3 class="panel-subtitle">Lenovo</h3>
+                <p class="panel-text">Usa <span class="tech-tag">Lenovo Vantage</span> para gestionar actualizaciones. Presta especial atención a la batería y ventilación.</p>
+                
+                <h3 class="panel-subtitle">Apple</h3>
+                <p class="panel-text">Mantén macOS actualizado través de <span class="tech-tag">Preferencias del Sistema > Actualización de Software</span>. Realiza una limpieza física con paños especiales.</p>
+                
+                <h3 class="panel-subtitle">Acer</h3>
+                <p class="panel-text">Utiliza <span class="tech-tag">Acer Care Center</span> para actualizaciones. Revisa la temperatura y rendimiento regularmente.</p>
+            </div>
+
+            <div class="panel-content">
+                <h2 class="panel-title">Consejos Generales de Optimización</h2>
+                <ul class="panel-list">
+                    <li>Mantén siempre actualizado tu sistema operativo</li>
+                    <li>Usa software antivirus actualizado</li>
+                    <li>Limita los programas que se inician con el sistema</li>
+                    <li>Realiza respaldos periódicos de información</li>
+                    <li>Evita sobrecalentar el equipo</li>
+                    <li>Usa almacenamiento en la nube para liberar espacio</li>
+                </ul>
+            </div>
+
+            <div class="panel-content">
+                <h2 class="panel-title">Sistemas Operativos: Consejos de Mantenimiento</h2>
+                
+                <h3 class="panel-subtitle">Windows</h3>
+                <p class="panel-text">Usa <span class="tech-tag">Herramienta de Desfragmentación</span> y <span class="tech-tag">Limpieza de Disco</span> regularmente.</p>
+                
+                <h3 class="panel-subtitle">macOS</h3>
+                <p class="panel-text">Utiliza <span class="tech-tag">Optimizar Almacenamiento</span> y mantén Time Machine activado.</p>
+                
+                <h3 class="panel-subtitle">Linux</h3>
+                <p class="panel-text">Actualiza mediante <span class="tech-tag">apt update</span> y <span class="tech-tag">apt upgrade</span> en distribuciones basadas en Debian.</p>
+            </div>
+        </div>
+    </div>
+     
+         <div class="ey">
+        <div class="two">
+            <div class="mye">
+                <h1>Val Assistant</h1>
+            </div>
+            <div class="section-item">
+                <p>¡Hola! Bienvenido a nuestro asistente de soporte técnico. Estoy aquí para ayudarte con una variedad de preguntas relacionadas con tu equipo de cómputo.</p>
+            </div>
+            <div class="section-item">
+                <h2>Lista de Preguntas y Consultas</h2>
+                <ul>
+                    <li>
+                        <strong>Actualizaciones de Sistemas Operativos:</strong>
+                        <ul>
+                            <li>actualizar windows</li>
+                            <li>actualizar macOS</li>
+                            <li>linux actualizar</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Limpieza de Computadora:</strong>
+                        <ul>
+                            <li>limpiar computadora</li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Revisión de Batería:</strong>
+                        <ul>
+                            <li>revisar bateria</li>
+                       
+                            <li>revisar bateria</li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+    <strong>Rendimiento de la Computadora:</strong>
+    <ul>
+        <li>rendimiento computadora</li>
+        <li>que hago para que mi pc vaya mas rapido</li>
+    </ul>
+</li>
+<li>
+    <strong>Detección de Virus:</strong>
+    <ul>
+        <li>virus</li>
+        <li>pasos debo seguir para eliminar un virus</li>
+    </ul>
+</li>
+<li>
+    <strong>Actualizar Drivers:</strong>
+    <ul>
+        <li>actualizar drivers</li>
+        
+    </ul>
+</li>
+<li>
+    <strong>Solucionar Problemas:</strong>
+    <ul>
+        <li>solucionar problemas</li>
+        
+    </ul>
+</li>
+<li>
+    <strong>Configurar Red:</strong>
+    <ul>
+        <li>configurar red</li>
+        
+    </ul>
+</li>
+<li>
+    <strong>Respaldo de Datos:</strong>
+    <ul>
+        
+        <li>respaldo de datos</li>
+    </ul>
+</li>
+<li>
+    <strong>Instalar Software:</strong>
+    <ul>
+        <li>instalar software</li>
+        
+    </ul>
+</li>
+<li>
+    <strong>Solucionar Pantalla Azul:</strong>
+    <ul>
+        <li>solucionar pantalla azul windows</li>
+        <li>para mac pantalla azul mac</li>
+    </ul>
+</li>
+<li>
+    <strong>Solucionar Problemas de WiFi:</strong>
+    <ul>
+        <li>solucionar wifi</li>
+        <li>pasos para arreglar wifi</li>
+    </ul>
+</li>
+<li>
+    <strong>Solucionar Problemas de Sonido:</strong>
+    <ul>
+        <li>solucionar sonido</li>
+       
+    </ul>
+</li>
+<li>
+    <strong>Solucionar Pantalla Negra:</strong>
+    <ul>
+        <li>solucionar pantalla negra</li>
+        
+    </ul>
+</li>
+                </ul>
+            </div>
+            <div class="section-item">
+                <h2>Ejemplo de Interacción</h2>
+                <p><strong>Usuario:</strong> "¿Cómo actualizo macOS?"</p>
+                <p><strong>Asistente:</strong> "Para actualizar macOS: Haz clic en el menú Apple > Preferencias del Sistema > Actualización de Software."</p>
+            </div>
+            <div class="section-item">
+                <h2>Consejos para Evitar Errores</h2>
+                <ol>
+                    <li><strong>Usa palabras clave exactas:</strong> Asegúrate de usar las palabras clave exactas mencionadas en la lista de consultas.</li>
+                    <li><strong>Formato de la pregunta:</strong> Escribe la pregunta en minúsculas y sin errores ortográficos.</li>
+                    <li><strong>Sigue el formato sugerido:</strong> Si la pregunta es larga, intenta resumirla usando las palabras clave.</li>
+                </ol>
+            </div>
+            <div class="section-item">
+                <p>Con estas mejoras y consejos, deberías poder interactuar de manera más efectiva con el asistente y obtener respuestas precisas.</p>
+            </div>
+        </div>
+    </div>
+     
+     <div class="maintenance-wrappers">
+        <div class="maintenance-panel">
+            <div class="panel-header">
+                <h2>Asistente Técnico</h2>
+                <button class="chat-toggle" onclick="toggleChat()">💬</button>
+            </div>
+            <div id="chatbot" class="hidden">
+                <div class="chat-container">
+                    <div id="chatMessages" class="chat-messages">
+                        <div class="message bot-message">
+                            ¡Hola! Soy tu asistente Val. ¿En qué puedo ayudarte con tu equipo de cómputo?
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="userInput" placeholder="Escribe tu pregunta...">
+                        <button onclick="sendMessage()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
     console.log('<%= usuario %>');
 </script>
@@ -746,7 +1411,91 @@ body {
             });
         });
     </script>
+    
+    
+    
+         <script>
+        function toggleChat() {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.classList.toggle('hidden');
+        }
 
-</body>
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            if (input.value.trim() === '') return;
 
-</html>
+            // Mensaje del usuario
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user-message');
+            userMessage.textContent = input.value;
+            messagesContainer.appendChild(userMessage);
+
+            // Respuesta del bot (simulada)
+            const botResponse = getBotResponse(input.value.toLowerCase());
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('message', 'bot-message');
+            botMessage.textContent = botResponse;
+            messagesContainer.appendChild(botMessage);
+
+            // Limpiar input
+            input.value = '';
+
+            // Scroll al último mensaje
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function getBotResponse(userInput) {
+            const responses = {
+                'hola': '¡Hola! Estoy aquí para ayudarte con problemas de computadoras.',
+                'actualizar windows': 'Para actualizar Windows: Ve a Inicio > Configuración > Windows Update. Haz clic en "Buscar actualizaciones" y sigue las instrucciones.',
+                'actualizar mac': 'Para actualizar macOS: Haz clic en el menú Apple > Preferencias del Sistema > Actualización de Software.',
+                'linux actualizar': 'En la mayoría de distribuciones Linux, usa el comando: sudo apt update && sudo apt upgrade',
+                'limpiar computadora': 'Para mantener limpia tu computadora:\n1. Limpia archivos temporales\n2. Desinstala programas no usados\n3. Usa una herramienta de limpieza de disco',
+                'revisar bateria': 'Para revisar la batería:\n- Windows: Panel de control > Estado de la batería\n- Mac: Menú Apple > Información del Sistema > Batería',
+                'rendimiento computadora': 'Para mejorar el rendimiento:\n1. Reduce programas de inicio\n2. Actualiza drivers\n3. Considera actualizar RAM\n4. Usa SSD',
+                'virus': 'Para detectar virus:\n1. Actualiza tu antivirus\n2. Realiza un escaneo completo\n3. Elimina amenazas\n4. Considera reinstalar sistema si es grave',
+                'actualizar drivers': 'Para actualizar drivers:\n- Windows: Dispositivos > Administrador de dispositivos > Actualizar driver\n- Mac: Menú Apple > Preferencias del Sistema > Actualización de Software',
+                'solucionar problemas': 'Para solucionar problemas comunes:\n1. Reinicia tu computadora\n2. Verifica conexiones\n3. Actualiza software\n4. Usa herramientas de diagnóstico',
+                'configurar red': 'Para configurar una red:\n- Windows: Inicio > Configuración > Red e Internet\n- Mac: Menú Apple > Preferencias del Sistema > Red',
+                'respaldo de datos': 'Para hacer un respaldo de datos:\n1. Usa herramientas de respaldo integradas\n2. Considera servicios en la nube\n3. Realiza copias de seguridad periódicas',
+                'instalar software': 'Para instalar software:\n1. Descarga el instalador\n2. Ejecuta el instalador\n3. Sigue las instrucciones en pantalla',
+                'solucionar pantalla azul': 'Para solucionar la pantalla azul:\n1. Reinicia en modo seguro\n2. Verifica drivers\n3. Actualiza Windows\n4. Considera reinstalar sistema si es grave',
+                'solucionar wifi': 'Para solucionar problemas de WiFi:\n1. Reinicia el router\n2. Verifica la conexión\n3. Actualiza drivers de red\n4. Usa herramientas de diagnóstico de red',
+                 'que hago para que mi pc vaya mas rapido': 'Para mejorar el rendimiento:\n1. Reduce programas de inicio\n2. Actualiza drivers\n3. Considera actualizar RAM\n4. Usa SSD',
+                'pasos debo seguir para eliminar un virus': 'Para detectar y eliminar virus:\n1. Actualiza tu antivirus\n2. Realiza un escaneo completo\n3. Elimina amenazas\n4. Considera reinstalar sistema si es grave',
+                'actualizar drivers windows': 'Para actualizar drivers en Windows:\n- Dispositivos > Administrador de dispositivos > Actualizar driver',
+                'actualizar drivers mac': 'Para actualizar drivers en macOS:\n- Menú Apple > Preferencias del Sistema > Actualización de Software',
+                'solucionar sonido': 'Para solucionar problemas de sonido:\n1. Verifica volumen\n2. Comprueba conexiones\n3. Actualiza drivers de audio\n4. Usa herramientas de diagnóstico de sonido',
+                'solucionar pantalla negra': 'Para solucionar la pantalla negra:\n1. Verifica conexiones\n2. Reinicia en modo seguro\n3. Actualiza drivers de video\n4. Considera reinstalar sistema si es grave',
+                'solucionar pantalla azul windows': 'Para solucionar la pantalla azul en Windows:\n1. Reinicia en modo seguro\n2. Verifica drivers\n3. Actualiza Windows\n4. Considera reinstalar sistema si es grave',
+                'para mac pantalla azul mac': 'Para solucionar la pantalla azul en macOS:\n1. Reinicia tu Mac\n2. Verifica actualizaciones de software\n3. Restaura el sistema desde un respaldo\n4. Considera reinstalar el sistema operativo',
+                'pasos para arreglar wifi': 'Para solucionar problemas de WiFi:\n1. Reinicia el router y el módem\n2. Verifica la conexión de red en la configuración de tu dispositivo\n3. Desactiva y vuelve a activar la conexión WiFi\n4. Actualiza los drivers de red\n5. Usa herramientas de diagnóstico de red\n6. Verifica la configuración del router\n7. Asegúrate de que no haya interferencias de otros dispositivos\n8. Cambia la frecuencia del canal WiFi\n9. Restaura la configuración de fábrica del router\n10. Considera actualizar el firmware del router'
+                
+        
+        
+        
+        
+        
+        };
+
+            // Búsqueda de respuestas
+            for (let key in responses) {
+                if (userInput.includes(key)) {
+                    return responses[key];
+                }
+            }
+
+            return 'Lo siento, no entendí tu pregunta. ¿Puedes ser más específico?';
+        }
+
+        // Evento para enviar con Enter
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+
+<jsp:include page="includes/footer.jsp"/>

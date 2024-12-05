@@ -43,54 +43,74 @@
   background-color: #f0f3f6;
 }
 
-.form-group {
-  margin-bottom: 25px;
-  position: relative;
+form {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
 }
 
-label {
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 8px;
-  display: block;
-  transition: color 0.3s ease;
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .input-group {
-  position: relative;
+    position: relative;
 }
 
 .input-group-addon {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #a0aec0;
-  transition: color 0.3s ease;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2563eb;
 }
 
-input[type="text"], 
-input[type="number"], 
-textarea {
-  width: 80%;
-  padding: 12px 15px;
-  font-size: 16px;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+input[type="submit"] {
+    display: block;
+    width: auto;
+    padding: 12px 24px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 1rem auto;
 }
 
-input[type="text"]:focus, 
-input[type="number"]:focus, 
-textarea:focus {
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+input[type="submit"]:hover {
+    background-color: #1e40af;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 120px;
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
 }
 
 .btn {
