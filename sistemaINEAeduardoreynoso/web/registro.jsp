@@ -1,9 +1,3 @@
-<%-- 
-    Document   : registro
-    Created on : 1/12/2024, 04:39:45 PM
-    Author     : cantt
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -148,12 +142,6 @@ button:active {
         padding: 20px;
     }
 }
-
-
-
-
-
-
       </style>
   </head>
   
@@ -169,8 +157,15 @@ button:active {
             String usuario = request.getParameter("usuario");
             String email = request.getParameter("email");
             String contrasena = request.getParameter("contrasena");
+            String tipo = request.getParameter("tipo"); // Obtener el tipo de usuario
 
-            String consultaRegistro = "INSERT INTO Usuario (nombre, email, contraseña) VALUES (?, ?, SHA2(?, 256))";
+            String consultaRegistro;
+
+            if ("admin".equalsIgnoreCase(tipo)) {
+                consultaRegistro = "INSERT INTO Administradores (nombre, email, contrasena) VALUES (?, ?, SHA2(?, 256))";
+            } else {
+                consultaRegistro = "INSERT INTO Usuario (nombre, email, contraseña) VALUES (?, ?, SHA2(?, 256))";
+            }
 
             try {
                 st = conexion.prepareStatement(consultaRegistro);
@@ -180,7 +175,7 @@ button:active {
 
                 int resultado = st.executeUpdate();
                 if (resultado > 0) {
-                    mensajeExito = "Usuario registrado exitosamente.";
+                    mensajeExito = "Usuario registrado exitosamente en la tabla " + (tipo.equalsIgnoreCase("admin") ? "Administrador" : "Usuario") + ".";
                 }
             } catch (Exception e) {
                 mensajeError = "Error al registrar el usuario: " + e.getMessage();
@@ -203,19 +198,18 @@ button:active {
         <input type="email" name="email" id="email" required>
         <label for="contrasena">Contraseña</label>
         <input type="password" name="contrasena" id="contrasena" required>
+        
+        <!-- Campo select para elegir tipo de usuario -->
+        <label for="tipo">Tipo de Usuario</label>
+        <select name="tipo" id="tipo" required>
+            <option value="usuario">Usuario</option>
+            <option value="admin">Administrador</option>
+        </select>
+
         <button type="submit" class="register-btn">Registrar</button>
-        <button type="submit" class="register-btn" onclick="location.href='index.jsp'">Regresar</button>
-        
-        
+        <button type="button" class="register-btn" onclick="location.href='index.jsp'">Regresar</button>
     </form>
 </div>
-    
-    <div>
-        
-    </div>
-    <div></div>
-    
-    
 
   </body>
 </html>

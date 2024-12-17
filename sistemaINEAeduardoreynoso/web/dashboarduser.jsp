@@ -897,6 +897,35 @@ body {
 .dashboard-btn:hover svg {
     transform: translateX(3px);
 }
+
+
+
+.exit-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-salir {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-salir:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(106, 17, 203, 0.3);
+}
+
+.btn-salir i {
+    margin-right: 8px;
+}
     </style>
 </head>
 <body>
@@ -977,52 +1006,91 @@ body {
                 </ul>
             </div>
         </div>
+           </div><br>
+           
+               <!-- New exit button -->
+    <div class="exit-container">
+        <a href="perfil.jsp" class="btn-salir">
+            <i class="fas fa-sign-out-alt"></i> Perfil
+        </a>
     </div><br><br>
-        <!-- Notificaciones Personalizadas -->
-        <section class="notifications-section">
-            <h2>Notificaciones</h2>
-            <table class="notifications-table">
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Descripción</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                     <% 
-                // Consulta para traer los reportes relacionados con el usuario
-                String consultaNotificaciones = "SELECT r.titulo, r.descripcion, r.id FROM Reporte r " +
-                                                "JOIN Usuario u ON r.usuarioId = u.id WHERE u.nombre = ?";
+           
+       <!-- Notificaciones Personalizadas -->
+<section class="notifications-section">
+    <h2>Notificaciones</h2>
+    <table class="notifications-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Fecha de Registro</th>
+                <th>Área</th>
+                <th>Usuario ID</th>
+                <th>Equipo ID</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                // Consulta para traer los reportes relacionados con el usuario actual
+                String consultaNotificaciones = "SELECT r.id, r.titulo, r.fechaRegistro, r.area, r.usuarioId, r.equipoId, r.descripcion " +
+                                                "FROM Reporte r " +
+                                                "JOIN Usuario u ON r.usuarioId = u.id " +
+                                                "WHERE u.nombre = ?";
                 try {
+                    // Prepara la consulta
                     st = conexion.prepareStatement(consultaNotificaciones);
-                    st.setString(1, usuario); // Usamos el nombre de usuario obtenido de la URL
-
+                    st.setString(1, usuario); // Se utiliza el nombre del usuario para filtrar
+                    
+                    // Ejecuta la consulta
                     rs = st.executeQuery();
-                    while (rs.next()) {
+                    
+                    // Verifica si hay resultados
+                    if (!rs.isBeforeFirst()) { 
             %>
-                <tr>
-                    <td><%= rs.getString("titulo") %></td>
-                    <td><%= rs.getString("descripcion") %></td>
-                    <td>
-                        <button onclick="location.href='modificarReporte.jsp?id=<%= rs.getInt("id")%>'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Modificar</button>
-
-                        <button onclick="location.href='eliminarReporte.jsp?id=<%= rs.getInt("id")%>'" style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Eliminar</button>
-
-                    </td>
-                </tr>
-            <% 
+                        <tr>
+                            <td colspan="8">No hay notificaciones disponibles.</td>
+                        </tr>
+            <%
+                    } else {
+                        // Itera sobre los resultados y genera las filas de la tabla
+                        while (rs.next()) {
+            %>
+                        <tr>
+                            <td><%= rs.getInt("id") %></td>
+                            <td><%= rs.getString("titulo") %></td>
+                            <td><%= rs.getDate("fechaRegistro") %></td>
+                            <td><%= rs.getString("area") %></td>
+                            <td><%= rs.getInt("usuarioId") %></td>
+                            <td><%= rs.getInt("equipoId") %></td>
+                            <td><%= rs.getString("descripcion") %></td>
+                            <td>
+                                <button onclick="location.href='modificarReporte.jsp?id=<%= rs.getInt("id")%>'" 
+                                        style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                                    Modificar
+                                </button>
+                                <button onclick="location.href='eliminarReporte.jsp?id=<%= rs.getInt("id")%>'" 
+                                        style="display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 14px; transition: all 0.3s ease; text-align: center; cursor: pointer; background-color: black; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+            <%
+                        }
                     }
                 } catch (Exception e) {
-                    out.println("<tr><td colspan='3'>Error al cargar las notificaciones: " + e.getMessage() + "</td></tr>");
+                    // Muestra un mensaje de error
+                    out.println("<tr><td colspan='8'>Error al cargar las notificaciones: " + e.getMessage() + "</td></tr>");
                 } finally {
-                    if (rs != null) rs.close();
-                    if (st != null) st.close();
+                    // Cierra los recursos
+                    if (rs != null) try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
+                    if (st != null) try { st.close(); } catch (Exception e) { e.printStackTrace(); }
                 }
             %>
-                </tbody>
-            </table>
-        </section>
+        </tbody>
+    </table>
+</section>
 
         <!-- Equipos del Usuario -->
         <section class="equipment-section">

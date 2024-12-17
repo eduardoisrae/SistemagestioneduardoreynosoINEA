@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
+<%@page import="java.sql.*, java.util.regex.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,28 +39,6 @@
             border-radius: 2px;
         }
 
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin-bottom: 30px;
-        }
-
-        .breadcrumb li {
-            margin: 0 10px;
-            font-size: 14px;
-        }
-
-        .breadcrumb li a {
-            color: #2575fc;
-            text-decoration: none;
-        }
-
-        .breadcrumb .active {
-            color: #6a11cb;
-        }
-
         label {
             font-weight: bold;
             color: #333;
@@ -68,6 +46,7 @@
 
         input[type="number"],
         input[type="date"],
+        input[type="email"],
         textarea,
         select {
             width: 100%;
@@ -140,8 +119,7 @@
 <body>
 
 <section class="container">
-   
-    <h3>Enviar Mensaje</h3>
+    <h3>Enviar Respuesta</h3>
     <form method="post" action="insertarRespuesta.jsp">
         <label for="reporteId">ID Reporte</label>
         <input type="number" id="reporteId" name="reporteId" required placeholder="Ingrese el ID del Reporte">
@@ -152,12 +130,14 @@
         <label for="fechaRespuesta">Fecha</label>
         <input type="date" id="fechaRespuesta" name="fechaRespuesta" required>
         
-        <label for="estado">Estado</label>
-        <select id="estado" name="estado" required>
-            <option value="Pendiente">Pendiente</option>
-            <option value="Resuelto">Resuelto</option>
-            <option value="Cancelado">Cancelado</option>
-        </select>
+<label for="estado">Correo Electrónico</label>
+<input type="email" id="estado" name="estado" required 
+    pattern=".+@(gmail\.com|udlondres\.com)" 
+    placeholder="Introduce tu correo (@gmail.com o @udlondres.com)">
+
+
+
+        
         
         <button type="submit" class="btn-primary">Enviar Respuesta</button>
     </form>
@@ -168,28 +148,45 @@
             String mensaje = request.getParameter("mensaje");
             String fechaRespuesta = request.getParameter("fechaRespuesta");
             String estado = request.getParameter("estado");
+            String email = request.getParameter("email");
 
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/SistemaControlEquipos", "root", "");
-                String sql = "INSERT INTO respuesta (reporteId, mensaje, fechaRespuesta, estado) VALUES (?, ?, ?, ?)";
-                PreparedStatement ps = conexion.prepareStatement(sql);
-                ps.setInt(1, Integer.parseInt(reporteId));
-                ps.setString(2, mensaje);
-                ps.setDate(3, Date.valueOf(fechaRespuesta));
-                ps.setString(4, estado);
+            // Validación de correo electrónico usando una expresión regular
+            String emailPattern = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+            if (!email.matches(emailPattern)) {
+                out.print("<div class='message error'>El correo electrónico no es válido.</div>");
+            } else {
+                Connection conexion = null;
+                PreparedStatement ps = null;
 
-                int filasAfectadas = ps.executeUpdate();
-                if (filasAfectadas > 0) {
-                    out.print("<div class='message success'>Respuesta enviada correctamente.</div>");
-                } else {
-                    out.print("<div class='message error'>No se pudo enviar la respuesta.</div>");
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver"); // Driver actualizado para MySQL 8+
+                    conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/SistemaControlEquipos", "root", "");
+                    String sql = "INSERT INTO respuesta (reporteId, mensaje, fechaRespuesta, estado, email) VALUES (?, ?, ?, ?, ?)";
+                    ps = conexion.prepareStatement(sql);
+                    ps.setInt(1, Integer.parseInt(reporteId));
+                    ps.setString(2, mensaje);
+                    ps.setDate(3, Date.valueOf(fechaRespuesta));
+                    ps.setString(4, estado);
+                    ps.setString(5, email);
+
+                    int filasAfectadas = ps.executeUpdate();
+                    if (filasAfectadas > 0) {
+                        out.print("<div class='message success'>Respuesta enviada correctamente.</div>");
+                    } else {
+                        out.print("<div class='message error'>No se pudo enviar la respuesta.</div>");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    out.print("<div class='message error'>Error: " + e.getMessage() + "</div>");
+                } finally {
+                    // Cierre manual de recursos
+                    if (ps != null) {
+                        try { ps.close(); } catch (SQLException e) { e.printStackTrace(); }
+                    }
+                    if (conexion != null) {
+                        try { conexion.close(); } catch (SQLException e) { e.printStackTrace(); }
+                    }
                 }
-                ps.close();
-                conexion.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-                out.print("<div class='message error'>Error: " + e.getMessage() + "</div>");
             }
         }
     %>
